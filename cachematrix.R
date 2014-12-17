@@ -65,3 +65,23 @@ cacheSolve <- function(x, ...) {
   x$setinverse(m)
   m
 }
+
+# Testing out the above 2 functions, by running below code line by line.
+# source("cachematrix.R")
+# set.seed(8888)
+# m <- matrix(sample.int(100,size=9,replace=TRUE),nrow=3)
+# d <- makeCacheMatrix(m)
+# check that the class(d) returns a list
+# cacheSolve(d)
+# if we run the cacheSolve(d) the second time, the text in red "getting cache data"
+# should appear, followed by the inverse of the matrix.
+
+# we next test the 2 functions again, but now with a much higher dimension of the matrix.
+# source("cachematrix.R")
+# set.seed(1234)
+# m1 <- matrix(sample.int(10000,size=1000000,replace=TRUE),nrow=1000)
+# d1 <- makeCacheMatrix(m1)
+# system.time(cacheSolve(d1))
+# run system.time(cacheSolve(d1)) the second time, the text in red "getting cache data"
+# should appear, and take note that the user, system and elapsed time is reduced
+# significantly, compared to its previous user, system and elapsed time.
