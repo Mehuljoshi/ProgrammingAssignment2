@@ -45,12 +45,13 @@ makeCacheMatrix <- function(x = matrix()) {
   
 }
 
+# The funciton cacheSolve() computes the inverse of the special "matrix" returned by makeCacheMatrix.
 # cacheSolve() accesses the object (not the makeCacheMatrix() function), by fetching the value of the 
 # matrix used to create the object. This matrix is being stored when the object was created.
 # If the inverse has not yet been calculated (='NULL'), cacheSolve() calculates the inverse and stores
 # it in the object created by the call to makeCacheMatrix(), then returns the inverse.
-# If the inverse has been calculated earlier then cacheSolve() simply fetches it and returns the 
-# inverse value, saving the computing time required to calculate the inverse again.
+# If the inverse has been calculated earlier (and the matrix has not changed) then cacheSolve() simply fetches 
+# it and returns the inverse value from the cache, saving the computing time required to calculate the inverse again.
 
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
